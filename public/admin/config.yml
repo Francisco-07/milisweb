@@ -1,0 +1,80 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+media_folder: /public/img/
+public_folder: /img/
+collections:
+  - name: "pages"
+    label: "Paginas"
+    files:
+      - label: "Cartas"
+        name: "Cards"
+        file: "content/featured.md"
+        fields:
+          - label: "Cartas"
+            name: "featured"
+            widget: list
+            allow_add: false
+            fields:
+              - { label: "Nombre del producto", name: "title", widget: "text" }
+              - { label: "Id", name: "id", widget: "number" }
+              - { label: "Imagen", name: "image", widget: "image" }
+      - label: "Galeria"
+        name: "Galeria"
+        file: "content/productsList.md"
+        fields:
+          - label: "Galeria"
+            name: "productos"
+            widget: list
+            fields:
+              - {
+                  label: "Categoria, es para que lo tenga en cuenta el filtro de la galeria",
+                  name: "tipo",
+                  widget: "select",
+                  options: ["gorra", "remera", "taza"],
+                  default: ["taza"],
+                }
+              - { label: "Titulo", name: "title", widget: "text" }
+              - {
+                  label: "id, que no se repita el numero, fijate el id del ultimo objeto y le pones el numero que siga",
+                  name: "id",
+                  widget: "number",
+                }
+              - { label: "Imagen", name: "image", widget: "image" }
+      - label: "Slider"
+        name: "Slider"
+        file: "content/slider.md"
+        fields:
+          - label: "Slider"
+            name: "sliderdata"
+            widget: list
+            fields:
+              - { label: "Nombre del producto", name: "title", widget: "text" }
+              - {
+                  label: "id, que no se repita el numero, fijate el id del ultimo objeto y el pones le numero que siga",
+                  name: "id",
+                  widget: "number",
+                }
+              - { label: "Imagen", name: "image", widget: "image" }
+      - label: "Sobre nosotros"
+        name: "About"
+        file: "content/about.md"
+        fields:
+          - { label: "Primer Titulo", name: "titulo1", widget: "text" }
+          - { label: "Primer Texto", name: "texto1", widget: "text" }
+          - { label: "Primer Imagen", name: "imagen1", widget: "image" }
+          - { label: "SegundoTitulo", name: "titulo2", widget: "text" }
+          - { label: "Segundo Texto", name: "texto2", widget: "text" }
+          - { label: "Segundo Imagen", name: "imagen2", widget: "image" }
+          - { label: "Tercero Titulo", name: "titulo3", widget: "text" }
+          - { label: "Tercero Texto", name: "texto3", widget: "text" }
+          - { label: "Tercero Imagen", name: "imagen3", widget: "image" }
+      - label: "imagen barra de navegacion, header"
+        name: "Background"
+        file: "content/background.md"
+        fields:
+          - {
+              label: "imagen barra de navegacion, header",
+              name: "backgroundImage",
+              widget: "image",
+            }
